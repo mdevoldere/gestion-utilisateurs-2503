@@ -3,7 +3,8 @@
 1. Modifier la table `t_role`. Ajouter une colonne `role_level` (nombre entier, obligatoire, valeur par défaut: 0). La colonne "role_level" permettra de connaitre le niveau d'autorisation du rôle.
 
 ```sql
-
+ALTER TABLE t_role 
+	ADD COLUMN role_level INT NOT NULL DEFAULT '0';
 ```
 
 2. Mettre à jour le niveau de chaque rôle : 
@@ -15,7 +16,11 @@
 | 3 | 10 |
 
 ```sql
+UPDATE t_role SET role_level=0 WHERE role_id=1;
 
+UPDATE t_role SET role_level=9 WHERE role_id=2;
+
+UPDATE t_role SET role_level=10 WHERE role_id=3;
 ```
 
 
@@ -28,7 +33,12 @@
 | dirigeant | La Big Boss | 8 | 4561 |
 
 ```sql
-
+INSERT INTO t_role 
+(role_name, role_description, role_level, role_register_code)
+VALUES 
+('employé', 'les salariés', '1', '7896'),
+('cadre', 'les managers', '2', 'asd44'),
+('dirigeant', 'la big boss', '3', '4561');
 ```
 
 # Ajout de données dans la base actuelle
@@ -45,5 +55,8 @@
 
 
 ```sql
-
+INSERT INTO t_user 
+(user_email, user_lastname, user_firstname, user_password, role_id)
+VALUES 
+('ella.danloss@example.com', 'Danloss', 'Ella', '2345', (SELECT role_id FROM t_role WHERE role_name = 'employé'));
 ```

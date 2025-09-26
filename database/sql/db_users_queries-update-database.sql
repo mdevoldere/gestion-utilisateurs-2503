@@ -36,4 +36,3 @@ VALUES
 ('cadre', 'les managers', '2', 'asd44'),
 ('dirigeant', 'la big boss', '3', '4561');
 	
-

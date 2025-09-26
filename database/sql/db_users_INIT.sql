@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS t_user
 
 
 /* Modifier la table t_user */
-ALTER TABLE t_user ADD CONSTRAINT FK_user_role FOREIGN KEY (role_id) REFERENCES t_role(role_id);
+ALTER TABLE t_user 
+	ADD CONSTRAINT FK_user_role FOREIGN KEY (role_id) REFERENCES t_role(role_id);
 
 
 

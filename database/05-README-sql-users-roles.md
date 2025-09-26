@@ -4,6 +4,9 @@
 
 ```sql
 /* Sans jointure */
+SELECT user_id, user_lastname, user_firstname, user_email, role_name 
+FROM t_user, t_role 
+WHERE t_user.role_id = t_role.role_id;
 
 /* Avec jointure */
 

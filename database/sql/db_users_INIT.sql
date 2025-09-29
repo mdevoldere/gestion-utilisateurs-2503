@@ -9,7 +9,7 @@ Structures de données : DATABASE, TABLE, VIEW, FUNCTION, PROCEDURE, TRIGGER
 
 DROP TABLE IF EXISTS t_user;
 DROP TABLE IF EXISTS t_role;
-# TRUNCATE TABLE t_role;
+-- TRUNCATE TABLE t_role;
 
 CREATE TABLE IF NOT EXISTS t_role 
 (
@@ -46,7 +46,7 @@ LMD : Langage de Modélisation des données
 INSERT : Insérer une ou plusieurs lignes dans une table existante
 UPDATE: Modifier une ou plusieurs lignes existantes
 DELETE: Supprimer une ou plusieurs lignes
-TRUNCATE : Vider une table ET 
+TRUNCATE : Vider une table ET réinitialiser les auto_increment
 */
 
 

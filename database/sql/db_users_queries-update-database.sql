@@ -35,4 +35,9 @@ VALUES
 ('employé', 'les salariés', '1', '7896'),
 ('cadre', 'les managers', '2', 'asd44'),
 ('dirigeant', 'la big boss', '3', '4561');
+
+INSERT INTO t_role 
+(role_name, role_description, role_level, role_register_code)
+VALUES 
+('concierge', 'toto', '1', '1111');
 	

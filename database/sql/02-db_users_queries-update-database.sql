@@ -40,4 +40,13 @@ INSERT INTO t_role
 (role_name, role_description, role_level, role_register_code)
 VALUES 
 ('concierge', 'toto', '1', '1111');
-	
+
+
+INSERT INTO t_user 
+(user_email, user_lastname, user_firstname, user_password, role_id)
+VALUES 
+('ella.danloss@example.com','Danloss',	'Ella', 	'12345', 4),
+('j.golay@example.fr', 'Golay', 'Jerry', 'azerty', 4),
+('medhi@example.fr',	'Camant', 'Medhi', 'password', 5),
+('aj@example.com', 'Javelle', 'Aude', '121180', 4),
+('jescr@example.fr', 'Scroute', 'Jessica', '231297', 6);

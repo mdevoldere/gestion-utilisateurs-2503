@@ -82,4 +82,3 @@ SELECT user_lastname, user_firstname, user_email
 FROM t_user 
 WHERE user_email LIKE '%.fr'
 ORDER BY user_lastname ASC;
-

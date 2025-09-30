@@ -139,5 +139,35 @@ GROUP BY t_role.role_id
 /* IL Y A UNE SOUS REQUETE... */
 
 SELECT (SELECT COUNT(user_id) FROM t_user) / (SELECT COUNT(role_id) FROM t_role);
-/* Après exécution des 2 sous requeêtes */
+/* Après exécution des 2 sous requêtes */
 SELECT (7) / (4)
+
+
+/* 8. Sélectionner nom, prénom, nom du rôle de tous les utilisateurs 
+    avec pour chaque utilisateur 
+    l'identifiant et nom de l'utilisateur possédant le même rôle et l'identifiant le plus petit. */
+
+SELECT 
+user_id, 
+user_lastname, 
+user_firstname, 
+role_name,
+t_user.role_id,
+(SELECT U.role_id FROM t_user AS U WHERE t_role.role_id = U.role_id AND t_user.user_id > U.user_id LIMIT 1) AS user_2_role,
+(SELECT MIN(U1.user_id) FROM t_user AS U1 WHERE t_role.role_id = U1.role_id AND t_user.user_id > U1.user_id LIMIT 1) AS user_2_id,
+(SELECT U2.user_lastname FROM t_user AS U2 WHERE t_role.role_id = U2.role_id AND t_user.user_id > U2.user_id LIMIT 1) AS user_2_lastname
+FROM t_user
+JOIN t_role ON t_role.role_id = t_user.role_id;
+
+
+SELECT 
+user_id, 
+user_lastname, 
+user_firstname, 
+role_name,
+t_user.role_id,
+(SELECT t_user.role_id FROM t_user WHERE t_role.role_id = t_user.role_id LIMIT 1) AS user_2_role,
+(SELECT MIN(user_id) FROM t_user WHERE t_role.role_id = t_user.role_id) AS user_2_id,
+(SELECT user_lastname FROM t_user WHERE t_role.role_id = t_user.role_id LIMIT 1) AS user_2_lastname
+FROM t_user 
+JOIN t_role ON t_role.role_id = t_user.role_id;
